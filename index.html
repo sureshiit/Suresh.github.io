@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suresh Kumar Yadav - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .name {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .emerging-tech-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95em;
+            font-weight: 600;
+            margin: 10px 5px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .experience-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin: 5px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #667eea;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            padding: 25px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .skill-category:hover::before {
+            left: 100%;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-category h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .emerging-tech {
+            border: 2px solid #f093fb;
+            background: linear-gradient(135deg, #f093fb, #f5576c, #667eea);
+            background-size: 300% 300%;
+            animation: gradientShift 4s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .emerging-tech h3 {
+            color: white;
+        }
+
+        .emerging-tech .skill-tag {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            transition: transform 0.2s ease;
+            position: relative;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+
+        .endorsed {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+            position: relative;
+        }
+
+        .endorsed::after {
+            content: '✓';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #fff;
+            color: #43e97b;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .experience-timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #f093fb, #667eea, #764ba2);
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #f8f9ff, #e8f0ff);
+            padding: 30px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .current-role {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+            border-left: 4px solid rgba(255,255,255,0.5);
+        }
+
+        .current-role .job-title,
+        .current-role .company {
+            color: white;
+        }
+
+        .current-role .location {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .current-role .job-description {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 25px;
+            width: 14px;
+            height: 14px;
+            background: #667eea;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px white;
+        }
+
+        .current-role::before {
+            background: #f093fb;
+            animation: pulse 2s infinite;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .job-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .duration {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .company {
+            font-size: 1.2em;
+            color: #667eea;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .location {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .job-description {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .job-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .job-skill {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .job-skill:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: scale(1.05);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card:nth-child(2) {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .project-card:nth-child(3) {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .project-card:nth-child(4) {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .project-card:nth-child(5) {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #333;
+        }
+
+        .project-card:nth-child(6) {
+            background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+            color: #333;
+        }
+
+        .project-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-duration {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-description {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tech-tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            backdrop-filter: blur(5px);
+        }
+
+        .education {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .education-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .degree {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .institution {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .education-details {
+            font-size: 1em;
+            opacity: 0.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid #e17055;
+            color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight::before {
+            content: '💡';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5em;
+            opacity: 0.3;
+        }
+
+        .cta-section {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 10px;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .top-skills {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .top-skills h3 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .top-skills-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .top-skill {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header, .section {
+                padding: 25px;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .emerging-tech-badge {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="profile-img">SKY</div>
+            <h1 class="name">Suresh Kumar Yadav</h1>
+            <p class="title">Manager (Information Systems) | AI-ML Implementation Expert | Data Analytics Specialist</p>
+            <div class="emerging-tech-badge">🚀 Emerging Technologies Leader</div>
+            <div class="experience-badge">12+ Years at IOCL</div>
+            <div class="experience-badge">IIT Graduate</div>
+            <div class="contact-info">
+                <a href="https://www.linkedin.com/in/suresh-kumar-yadav-sky-24967719/" class="contact-item" target="_blank">
+                    <span>🔗</span> LinkedIn Profile
+                </a>
+                <a href="mailto:skyadav1.10@gmail.com" class="contact-item">
+                    <span>📧</span> skyadav1.10@gmail.com
+                </a>
+                <span class="contact-item">
+                    <span>📍</span> Mathura, Uttar Pradesh, India
+                </span>
+            </div>
+        </header>
+
+        <!-- About Section -->
+        <section class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <p style="font-size: 1.1em; color: #555; line-height: 1.8; margin-bottom: 20px;">
+                Dynamic Information Systems Manager with 12+ years of progressive experience at Indian Oil Corporation Limited (IOCL), 
+                India's largest commercial enterprise. Currently spearheading cutting-edge AI-ML implementation initiatives and transforming 
+                enterprise data analytics capabilities. Former Research Scientist at DRDO with expertise spanning from cyber security research 
+                to advanced software development and enterprise system optimization.
+            </p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">12+</span>
+                    <div class="stat-label">Years at IOCL</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">30+</span>
+                    <div class="stat-label">Technical Skills</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">6+</span>
+                    <div class="stat-label">Major Projects</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">AI/ML</span>
+                    <div class="stat-label">Current Focus</div>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <strong>Innovation Leadership:</strong> Pioneering the integration of artificial intelligence and machine learning technologies 
+                in India's largest oil & gas enterprise, developing next-generation analytics dashboards, and driving digital transformation 
+                across complex enterprise systems.
+            </div>
+        </section>
+
+        <!-- Top Skills Highlight -->
+        <section class="section">
+            <div class="top-skills">
+                <h3>🏆 Core Competencies</h3>
+                <div class="top-skills-list">
+                    <div class="top-skill">ABAP</div>
+                    <div class="top-skill">SAP WebDynpro</div>
+                    <div class="top-skill">Qlik Sense</div>
+                    <div class="top-skill">Data Analytics</div>
+                    <div class="top-skill">Python Programming</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category emerging-tech">
+                    <h3>🤖 Emerging Technologies (Current Focus)</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AI Implementation</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Data Science</span>
+                        <span class="skill-tag">Predictive Analytics</span>
+                        <span class="skill-tag">Digital Transformation</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>📊 Data Analytics & BI</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">QlikSense</span>
+                        <span class="skill-tag">Data Analytics</span>
+                        <span class="skill-tag">Dashboard Development</span>
+                        <span class="skill-tag">HR Analytics</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Business Intelligence</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>💻 Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag endorsed">Python (7+ endorsements)</span>
+                        <span class="skill-tag">C# Development</span>
+                        <span class="skill-tag endorsed">C (14+ endorsements)</span>
+                        <span class="skill-tag endorsed">C++ (13+ endorsements)</span>
+                        <span class="skill-tag endorsed">Java (8+ endorsements)</span>
+                        <span class="skill-tag endorsed">PHP</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>🏢 SAP & Enterprise Systems</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ABAP</span>
+                        <span class="skill-tag">SAP WebDynpro</span>
+                        <span class="skill-tag">Object Oriented ABAP</span>
+                        <span class="skill-tag endorsed">SAP Business Workflow</span>
+                        <span class="skill-tag">SAP HR</span>
+                        <span class="skill-tag">SAP ESS</span>
+                        <span class="skill-tag">Human Capital Management</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>🗄️ Database & Web Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Oracle Database</span>
+                        <span class="skill-tag">Oracle SQL Developer</span>
+                        <span class="skill-tag endorsed">MySQL</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">Web Services API</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>🛠️ Tools & Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag endorsed">Linux (6+ endorsements)</span>
+                        <span class="skill-tag endorsed">Matlab (4+ endorsements)</span>
+                        <span class="skill-tag endorsed">Eclipse</span>
+                        <span class="skill-tag endorsed">Algorithms</span>
+                        <span class="skill-tag">Cyber Security</span>
+                        <span class="skill-tag endorsed">Software Development</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="section">
+            <h2 class="section-title">Professional Journey</h2>
+            <div class="experience-timeline">
+                
+                <div class="experience-item current-role">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Manager (Information System)</div>
+                            <div class="company">Indian Oil Corporation Limited (IOCL)</div>
+                            <div class="location">Mathura, Uttar Pradesh, India · On-site</div>
+                        </div>
+                        <div class="duration">Apr 2025 - Present · 5 mos</div>
+                    </div>
+                    <div class="job-description">
+                        Leading cutting-edge AI-ML implementation initiatives and advanced software development projects. 
+                        Driving digital transformation through artificial intelligence and machine learning solutions across 
+                        enterprise systems, positioning IOCL at the forefront of technological innovation in the energy sector.
+                    </div>
+                    <div class="job-skills">
+                        <span class="job-skill">Artificial Intelligence (AI)</span>
+                        <span class="job-skill">Machine Learning</span>
+                        <span class="job-skill">C#</span>
+                        <span class="job-skill">Qlik Sense</span>
+                        <span class="job-skill">Data Analysis</span>
+                        <span class="job-skill">Web Services API</span>
+                        <span class="job-skill">Oracle Database</span>
+                        <span class="job-skill">HTML5</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Manager (Information System)</div>
+                            <div class="company">Indian Oil Corporation Limited (IOCL)</div>
+                            <div class="location">Gurugram, Haryana, India</div>
+                        </div>
+                        <div class="duration">Apr 2021 - Mar 2025 · 4 yrs</div>
+                    </div>
+                    <div class="job-description">
+                        Managed enterprise information systems and led SAP-based software development projects at Corporate Business 
+                        Development Centre. Developed comprehensive data analytics solutions and advanced QlikSense dashboards. 
+                        Specialized in HR analytics projects and enterprise system optimization.
+                    </div>
+                    <div class="job-skills">
+                        <span class="job-skill">ABAP</span>
+                        <span class="job-skill">ABAP Web Dynpro</span>
+                        <span class="job-skill">Object Oriented ABAP</span>
+                        <span class="job-skill">SAP WebDynpro</span>
+                        <span class="job-skill">SAP HR</span>
+                        <span class="job-skill">SAP ESS</span>
+                        <span class="job-skill">Qlik Sense</span>
+                        <span class="job-skill">Data Analytics</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Assistant Manager</div>
+                            <div class="company">Indian Oil Corporation Limited (IOCL)</div>
+                            <div class="location">Gurugram, India</div>
+                        </div>
+                        <div class="duration">Apr 2017 - Mar 2021 · 4 yrs</div>
+                    </div>
+                    <div class="job-description">
+                        Completed advanced Cutting Edge Programme at Indian Oil Institute of Petroleum Management (IIPM). 
+                        Developed Self-Booking Tool (SBT), worked on API integrations and SAP IDoc implementations. 
+                        Gained expertise in QlikSense analytics platform for business intelligence solutions.
+                    </div>
+                    <div class="job-skills">
+                        <span class="job-skill">Self-Booking Tool (SBT)</span>
+                        <span class="job-skill">API Development</span>
+                        <span class="job-skill">SAP IDoc</span>
+                        <span class="job-skill">QlikSense</span>
+                        <span class="job-skill">Business Intelligence</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Officer (Information Systems)</div>
+                            <div class="company">Indian Oil Corporation Limited (IOCL)</div>
+                            <div class="location">Gurugram, India</div>
+                        </div>
+                        <div class="duration">Nov 2012 - Mar 2017 · 4 yrs 5 mos</div>
+                    </div>
+                    <div class="job-description">
+                        Specialized in SAP-based software development using ABAP language. Led Human Capital Management (HCM) projects 
+                        and HR services through Employee Self Services (ESS). Developed and optimized SAP Business Workflows and 
+                        WebDynpro applications for enterprise operations.
+                    </div>
+                    <div class="job-skills">
+                        <span class="job-skill">SAP ABAP Development</span>
+                        <span class="job-skill">Human Capital Management</span>
+                        <span class="job-skill">Employee Self Services</span>
+                        <span class="job-skill">SAP Business Workflow</span>
+                        <span class="job-skill">WebDynpro Applications</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Scientist 'B'</div>
+                            <div class="company">Defence Research & Development Organization (DRDO)</div>
+                            <div class="location">Pune Area, India</div>
+                        </div>
+                        <div class="duration">Jul 2012 - Oct 2012 · 4 mos</div>
+                    </div>
+                    <div class="job-description">
+                        Research scientist under Ministry of Defence, Government of India. Conducted advanced research in cyber security 
+                        and developed innovative technological solutions for national defense applications. Part of prestigious POINTS-17 batch.
+                    </div>
+                    <div class="job-skills">
+                        <span class="job-skill">Cyber Security</span>
+                        <span class="job-skill">Research & Development</span>
+                        <span class="job-skill">Defense Technology</span>
+                        <span class="job-skill">Government Projects</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Research Intern</div>
+                            <div class="company">Indian Institute of Tropical Meteorology, Pune</div>
+                            <div class="location">Pune Area, India</div>
+                        </div>
+                        <div class="duration">May 2011 - Jul 2011 · 3 mos</div>
+                    </div>
+                    <div class="job-description">
+                        Summer internship under Dr. A.K. Sahai (Scientist F) and Dr. R. Phani focusing on GUI interfacing for 
+                        Climate Forecast System (CFS) model OPER Version 2 on AIX HPC system at High Performance Computing Systems.
+                    </div>
+                    <div class="job-skills">
+                        <span class="job-skill">High Performance Computing</span>
+                        <span class="job-skill">Climate Modeling</span>
+                        <span class="job-skill">GUI Development</span>
+                        <span class="job-skill">AIX Systems</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section">
+            <h2 class="section-title">Key Projects & Innovations</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-title">🚀 AI-ML Implementation Framework</div>
+                    <div class="project-duration">2025 - Ongoing</div>
+                    <div class="project-description">
+                        Leading enterprise-wide AI and Machine Learning implementation at IOCL. Developing intelligent automation systems, 
+                        predictive analytics models, and smart decision-making frameworks for India's largest commercial enterprise.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Artificial Intelligence</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Enterprise Integration</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-title">Self-Booking Tool (SBT) - Travel Management</div>
+                    <div class="project-duration">May 2014 - Mar 2015</div>
+                    <div class="project-description">
+                        Designed and developed comprehensive SAP-based tour and travel management system using advanced ABAP and WebDynpro. 
+                        Features automatic approving authority determination, airline/train booking interfaces, and end-to-end payment integration.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">ABAP</span>
+                        <span class="tech-tag">SAP WebDynpro</span>
+                        <span class="tech-tag">SAP Organizational Management</span>
+                        <span class="tech-tag">API Integration</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-title">HR Analytics Dashboard Suite</div>
+                    <div class="project-duration">2021 - 2025</div>
+                    <div class="project-description">
+                        Built comprehensive HR analytics platform on QlikSense, providing real-time insights into workforce performance, 
+                        talent management, employee engagement, and organizational effectiveness metrics for strategic HR decisions.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">QlikSense</span>
+                        <span class="tech-tag">HR Analytics</span>
+                        <span class="tech-tag">Data Modeling</span>
+                        <span class="tech-tag">Workforce Intelligence</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-title">Real-Time Network Simulator (NS-2 Extension)</div>
+                    <div class="project-duration">Aug 2011 - Mar 2012</div>
+                    <div class="project-description">
+                        Extended NS-2 Network Simulator to support real-time distributed systems simulation across different topologies. 
+                        Successfully integrated Network Simulator with Real-Time Operating System Simulator for comprehensive analysis.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">C Programming</span>
+                        <span class="tech-tag">NS-2</span>
+                        <span class="tech-tag">Real-Time Systems</span>
+                        <span class="tech-tag">Network Protocols</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-title">AODV Protocol Enhancement</div>
+                    <div class="project-duration">Feb 2011 - Apr 2011</div>
+                    <div class="project-description">
+                        Implemented AODV "path-accumulation" variant for ad-hoc mobile networks in NS-2, creating hybrid protocol 
+                        combining AODV and DSR features with enhanced routing table management and optimized broadcast mechanisms.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Network Protocols</span>
+                        <span class="tech-tag">Algorithm Design</span>
+                        <span class="tech-tag">Mobile Networks</span>
+                        <span class="tech-tag">Performance Optimization</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-title">PintOS Operating System Enhancement</div>
+                    <div class="project-duration">Sep 2010 - Dec 2010</div>
+                    <div class="project-description">
+                        Enhanced Stanford's PintOS educational operating system by implementing synchronization primitives, 
+                        multiple thread scheduling algorithms, and comprehensive user program support through advanced system calls.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Operating Systems</span>
+                        <span class="tech-tag">C Programming</span>
+                        <span class="tech-tag">System Architecture</span>
+                        <span class="tech-tag">Kernel Development</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section">
+            <div class="education">
+                <div class="education-content">
+                    <h2 style="margin-bottom: 25px; font-size: 2em;">Education & Credentials</h2>
+                    <div class="degree">B.Tech in Computer Science & Engineering</div>
+                    <div class="institution">Indian Institute of Technology (IIT) Ropar</div>
+                    <div class="education-details">2008 - 2012 | Punjab, India</div>
+                    <p style="margin-top: 20px; opacity: 0.9; font-size: 1.1em;">
+                        Graduated from one of India's premier technical institutions with strong foundation in computer science fundamentals, 
+                        algorithms, software engineering, and emerging technologies.
+                    </p>
+                    
+                    <div style="margin-top: 25px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 15px;">
+                        <strong>Professional Development:</strong><br>
+                        Cutting Edge Programme at Indian Oil Institute of Petroleum Management (IIPM), Gurugram
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Leadership Section -->
+        <section class="section">
+            <h2 class="section-title">Technology Leadership & Innovation</h2>
+            <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 30px; border-radius: 15px; margin-bottom: 25px;">
+                <h3 style="margin-bottom: 15px; font-size: 1.4em;">🎯 Current Innovation Focus</h3>
+                <p style="font-size: 1.1em; line-height: 1.7; opacity: 0.95;">
+                    Spearheading IOCL's digital transformation journey through strategic implementation of AI-ML technologies, 
+                    advanced data analytics, and next-generation enterprise solutions. Building the technological foundation 
+                    for India's energy sector future.
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                <div style="background: linear-gradient(135deg, #f093fb, #f5576c); color: white; padding: 25px; border-radius: 15px;">
+                    <h4 style="margin-bottom: 10px;">🤖 AI/ML Integration</h4>
+                    <p>Leading enterprise AI adoption, developing machine learning models for predictive analytics and operational optimization.</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; padding: 25px; border-radius: 15px;">
+                    <h4 style="margin-bottom: 10px;">📊 Advanced Analytics</h4>
+                    <p>Creating sophisticated QlikSense dashboards and business intelligence solutions for data-driven decision making.</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #43e97b, #38f9d7); color: white; padding: 25px; border-radius: 15px;">
+                    <h4 style="margin-bottom: 10px;">🏢 Enterprise Systems</h4>
+                    <p>Architecting scalable SAP solutions and enterprise integrations for India's largest commercial organization.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Projects -->
+        <section class="section">
+            <h2 class="section-title">Academic & Research Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-title">Climate Forecast System Interface</div>
+                    <div class="project-duration">May 2011 - Jul 2011</div>
+                    <div class="project-description">
+                        Developed GUI interfacing for Climate Forecast System (CFS) model OPER Version 2 on AIX HPC system 
+                        at Indian Institute of Tropical Meteorology under guidance of leading climate scientists.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">High Performance Computing</span>
+                        <span class="tech-tag">GUI Development</span>
+                        <span class="tech-tag">Climate Modeling</span>
+                        <span class="tech-tag">AIX Systems</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-title">Web Development Portfolio</div>
+                    <div class="project-duration">Feb 2010 - Apr 2010</div>
+                    <div class="project-description">
+                        Developed comprehensive e-commerce shopping cart website and university database query server. 
+                        Implemented full-stack solutions using database management, HTML, PHP, JavaScript, and ASP.NET with 
+                        proper normalization and constraints.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Full-Stack Development</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">ASP.NET</span>
+                        <span class="tech-tag">Database Design</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-title">Floating Point Processor Simulation</div>
+                    <div class="project-duration">Sep 2009 - Nov 2009</div>
+                    <div class="project-description">
+                        Simulated floating point hardware components of processor using fundamental digital logic principles. 
+                        Modeled memory, CPU registers, and ALU components with real processor design constraints and optimization techniques.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Computer Architecture</span>
+                        <span class="tech-tag">Digital Logic</span>
+                        <span class="tech-tag">Processor Design</span>
+                        <span class="tech-tag">Hardware Simulation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <h2 style="margin-bottom: 20px; color: #333;">Ready to Innovate Together?</h2>
+            <p style="margin-bottom: 30px; color: #666; font-size: 1.1em;">
+                Let's collaborate on cutting-edge AI-ML projects, enterprise analytics solutions, or discuss how emerging technologies 
+                can transform your organization. With 12+ years of enterprise experience and deep expertise in emerging technologies, 
+                I'm ready to drive your next digital transformation initiative.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+                <a href="https://www.linkedin.com/in/suresh-kumar-yadav-sky-24967719/" class="cta-button" target="_blank">
+                    🔗 Connect on LinkedIn
+                </a>
+                <a href="mailto:skyadav1.10@gmail.com" class="cta-button">
+                    📧 Send Email
+                </a>
+                <a href="#" class="cta-button" onclick="window.print(); return false;">
+                    📄 Download Portfolio
+                </a>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #f8f9ff, #e8f0ff); border-radius: 15px;">
+                <p style="color: #667eea; font-weight: 600; margin-bottom: 10px;">🎯 Open to Opportunities In:</p>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+                    <span style="background: rgba(102, 126, 234, 0.1); color: #667eea; padding: 5px 12px; border-radius: 15px; font-size: 0.9em;">AI/ML Leadership Roles</span>
+                    <span style="background: rgba(102, 126, 234, 0.1); color: #667eea; padding: 5px 12px; border-radius: 15px; font-size: 0.9em;">Digital Transformation</span>
+                    <span style="background: rgba(102, 126, 234, 0.1); color: #667eea; padding: 5px 12px; border-radius: 15px; font-size: 0.9em;">Enterprise Analytics</span>
+                    <span style="background: rgba(102, 126, 234, 0.1); color: #667eea; padding: 5px 12px; border-radius: 15px; font-size: 0.9em;">Technology Consulting</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Add smooth scrolling and interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate sections on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            document.querySelectorAll('.section').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Add click animations to project cards
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+
+            // Add hover effect to skill tags
+            document.querySelectorAll('.skill-tag').forEach(tag => {
+                tag.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+                });
+                
+                tag.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = '';
+                });
+            });
+
+            // Animate stats on scroll
+            const statsObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const statNumber = entry.target.querySelector('.stat-number');
+                        if (statNumber && !statNumber.classList.contains('animated')) {
+                            statNumber.classList.add('animated');
+                            statNumber.style.animation = 'countUp 1s ease-out';
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('.stat-item').forEach(item => {
+                statsObserver.observe(item);
+            });
+        });
+
+        // Add CSS animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            @keyframes countUp {
+                from {
+                    transform: scale(0.5);
+                    opacity: 0;
+                }
+                to {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
